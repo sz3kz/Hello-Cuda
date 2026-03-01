@@ -5,4 +5,4 @@ project(Hello-Cuda
   DESCRIPTION "Classic \"Hello World\" program utilizing CUDA parallel computing platform."
   LANGUAGES CXX CUDA)
 
-# add_executable(BINARY-FILE SOURCE-FILES)
+add_executable(hello-cuda src/main.cu)
