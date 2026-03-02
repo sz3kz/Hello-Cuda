@@ -5,4 +5,10 @@ project(Hello-Cuda
   DESCRIPTION "Classic \"Hello World\" program utilizing CUDA parallel computing platform."
   LANGUAGES CXX CUDA)
 
-add_executable(hello-cuda src/main.cu)
+file(GLOB SOURCES
+    include/*.h
+    src/main.cu
+    src/*/*.cu
+)
+
+add_executable(hello-cuda ${SOURCES})
