@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+constexpr int BASE_DECIMAL = 10;
+
 enum CommandlineArgumentIndexes {
   EXECUTABLE_NAME,
   BLOCKS,
