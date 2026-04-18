@@ -9,8 +9,8 @@ int main(int argc, char * argv[] ){
     printf("\tUsage: %s <blockAmount> <threadAmount>", argv[EXECUTABLE_NAME]);
     return 1;
   }
-  long blocks = strtol(argv[BLOCKS], NULL, BASE_DECIMAL);
-  long threads_per_block = strtol(argv[THREADS_PER_BLOCK], NULL, BASE_DECIMAL);
+  unsigned int blocks = static_cast<unsigned int>(std::strtoul(argv[BLOCKS], nullptr, BASE_DECIMAL));
+  unsigned int threads_per_block = static_cast<unsigned int>(std::strtoul(argv[THREADS_PER_BLOCK], nullptr, BASE_DECIMAL));
   //printf("block: %ld \n",blocks);
   //printf("threads per block: %ld \n",threads_per_block);
   cout << "Hello World!" << endl;

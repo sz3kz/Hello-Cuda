@@ -2,6 +2,8 @@
 #define MY_MAIN
 
 #include <iostream>
+#include <cstddef>
+#include <string>
 
 constexpr int BASE_DECIMAL = 10;
 
