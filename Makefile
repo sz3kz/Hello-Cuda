@@ -8,7 +8,7 @@ cmake-init:
 	cd ${ROOT_DIRECTORY} && git sparse-checkout init --cone && git sparse-checkout set ${CPP_DIRECTORY}
 
 cmake-update:
-	git submodule update --remote --merge
+	git submodule update --init
 	cd ${ROOT_DIRECTORY}${CPP_DIRECTORY} && make deploy
 
 cmake-purge:
