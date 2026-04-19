@@ -1,6 +1,6 @@
-[submodule "external/dotfiles"]
-	path = external/dotfiles
-	url = https://github.com/sz3kz/dotfiles.git
 [submodule "cmake_tools"]
 	path = external/cmake-tools
+	url = https://github.com/sz3kz/dotfiles.git
+[submodule "external/dotfiles"]
+	path = external/dotfiles
 	url = https://github.com/sz3kz/dotfiles.git
