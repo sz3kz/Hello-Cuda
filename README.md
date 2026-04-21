@@ -5,7 +5,7 @@ A classic "hello world" program written utilizing the CUDA parallel computing pl
 ```bash
 git clone git@github.com:sz3kz/Hello-Cuda.git
 cd Hello-Cuda/
-make cmake-init     # Overwrite the CMakeLists.txt? -> n
+make cmake-init
 mkdir build
 cd build/
 cmake ..
