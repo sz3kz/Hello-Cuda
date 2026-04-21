@@ -7,13 +7,17 @@ MAKEFILE_DIRECTORY=make/
 CMAKE_CLIENT_MAKEFILE=cmake.mk
 
 # Add to project:
+# git submodule add --depth 1 ${URL} ${ROOT_DIRECTORY}
+# cd ${ROOT_DIRECTORY} && git sparse-checkout init --cone && git sparse-checkout set ${CPP_DIRECTORY}
 
+# This initializes the existing cmake
 cmake-init:
-	git submodule add --depth 1 ${URL} ${ROOT_DIRECTORY}
-	cd ${ROOT_DIRECTORY} && git sparse-checkout init --cone && git sparse-checkout set ${CPP_DIRECTORY}
+	git submodule update --init													# fetches existing commit
+	cd ${ROOT_DIRECTORY}${CPP_DIRECTORY} && make deploy
 
+# This updates the target cmake 
 cmake-update:
-	git submodule update --init --remote									# --remote refreshes commit target
+	git submodule update --init --remote								# fetches latest commit
 	cd ${ROOT_DIRECTORY}${CPP_DIRECTORY} && make deploy
 
 cmake-purge:
