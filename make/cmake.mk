@@ -1,26 +1,9 @@
-.PHONY: cmake-init cmake-update cmake-purge
+.PHONY: cmake-retemplate cmake-refresh
 
-URL=https://github.com/sz3kz/dotfiles.git
-ROOT_DIRECTORY=external/dotfiles/
-CPP_DIRECTORY=CPP/
-MAKEFILE_DIRECTORY=make/
-CMAKE_CLIENT_MAKEFILE=cmake.mk
+SERVER_MAKEFILE_DIRECTORY=external/dotfiles/CPP/
 
-# This initializes the existing cmake
-cmake-init:
-	git submodule update --init													# fetches existing commit
-	cd ${ROOT_DIRECTORY}${CPP_DIRECTORY} && make sync
+cmake-retemplate:
+	cd ${SERVER_MAKEFILE_DIRECTORY} && make cmake-retemplate
 
-# This updates the target cmake 
-cmake-update:
-	git submodule update --init --remote								# fetches latest commit
-	cd ${ROOT_DIRECTORY}${CPP_DIRECTORY} && make deploy
-
-cmake-purge:
-	git rm -f ${ROOT_DIRECTORY}
-	-git rm --cached ${ROOT_DIRECTORY}
-	-git config -f .git/config --remove-section submodule.${ROOT_DIRECTORY}
-	-git config -f .gitmodules --remove-section submodule.${ROOT_DIRECTORY}
-	-rm -rf .git/modules/${ROOT_DIRECTORY}
-	rm ${MAKEFILE_DIRECTORY}${CMAKE_CLIENT_MAKEFILE}
-	-rmdir ${MAKEFILE_DIRECTORY}
+cmake-refresh:
+	cd ${SERVER_MAKEFILE_DIRECTORY} && make cmake-refresh
